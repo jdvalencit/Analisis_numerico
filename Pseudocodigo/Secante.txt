@@ -1,0 +1,26 @@
+read x0, x1|, tol, maxIter
+fx0 = f(x0)
+fx1 = f(x1)
+error = tol + 1
+errorRelativo = 0
+iterActual = 0
+
+if(fx0 == 0) imprimir "%x0 es una raíz"
+else
+	fx1 = f(x1)
+	denominador = fx1 - fx0
+	iterActual = iterActual + 1
+	while(error > tol && fx1 != 0 && denominador != 0 && iter < maxIter - 1)
+		actual = x1 - fx1 * (x1 - x0) / denominador
+		error = actual - x1
+		error = |error| //Valor absoluto
+		errorRelativo = error/actual
+		x0 = x1
+		fx0 = fx1
+		x1 = actual
+		denominador = fx1 - fx0
+		iterActual = iterActual + 1
+	end while
+end if
+
+imprimir "la raíz es %x1"

@@ -1,0 +1,42 @@
+input (xi,xf, tolerancia)
+
+
+    xm = (xi + xf) / 2        
+    error = tolerancia + 1
+    errorRelativo = 0
+    maxIteraciones = 100
+    numeroIteraciones = 0
+    funcionXI = f(xi)
+    funcionXF = f(xf)
+
+    if f(xi) == 0
+        imprimir "xi es raíz"
+    else if f(xf) == 0
+        imprimir "xf es una raíz"
+    end if
+
+    if   funcionXI * funcionXF < 0
+
+        xm = (xi + xf) / 2
+        funcionXM = f(xm)
+
+        while (error > tol & funcionXM != 0 & numeroIteraciones < maxIteraciones -1)
+
+            if funcionXI * funcionXM < 0
+                xf = xm
+                funcionXF = funcionXM
+            else
+                xi = xm
+                funcionXI = funcionXM
+            end if
+            
+            xm = (xi + xf) / 2
+            funcionXM = f(xm)
+            error = |xm - xi|
+            errorRelativo = |error / xm|
+            numeroIteraciones ++
+
+        end while
+    end if
+
+    imprimir "La raíz es xm"

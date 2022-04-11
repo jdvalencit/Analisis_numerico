@@ -1,0 +1,17 @@
+input(xi, tol, maxIter)
+    x = xi
+    fx = f(x)
+    error = tol + 1
+    errorRelativo = 0
+    iter = 0
+
+    while error > tol & fx != 0 & iter < maxIter -1
+        x=g(x)
+        fx = f(x)
+        error = |x-xi|
+        errorRelativo = |error/x|
+        xi = x
+        iter ++
+    end while
+
+    imprimir "La raíz es x"

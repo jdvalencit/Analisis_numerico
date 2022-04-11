@@ -1,0 +1,33 @@
+input(xi, xf, tol, maxIter)
+    xm = 0
+    fxi = f(xi)
+    fxf = f(xf)
+    error = tol + 1 
+    iter = 0
+
+    if fxi == 0
+        "xi es una raíz"
+    else if fxf == 0
+        "xs es una raíz"
+    else if fxi * fxf < 0
+        xm = xi - fxi * (xf - xi) / (fxf - fxi)
+        fxm = f(xm)
+
+        while error > tol & fxm != 0 & iter < maxIter - 1
+            if fxi * fxm < 0
+                xf = xm
+                fxf = fxm
+            else
+                xi = xm
+                fxi = fxm
+            end if
+
+            actual = xm
+            xm = xi - fxi * (xf - xi) / (fxf - fxi)
+            fxm = f(xm)
+            error = |(xm - actual)| 
+            iter ++
+        end while
+    end if
+
+    "La raíz es xm"

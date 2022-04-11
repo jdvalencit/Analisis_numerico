@@ -1,0 +1,18 @@
+read xi, tol, maxIter
+x = xi
+error = tol + 1
+fx = f(x)
+dfx = df(x) //df = derivada
+iterActual = 0
+
+while(error > tol && fx != 0 && iterActual < maxIter - 1)
+	dfx = df(x)
+	x = x - fx/dfx
+	fx = f(x)
+	error = xi - x
+	error = |error| //Valor absoluto
+	xi = x
+	iterActual = iterActual + 1;
+end while
+
+imprimir "la raíz es %x"

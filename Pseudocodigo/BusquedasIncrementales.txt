@@ -1,0 +1,31 @@
+input(inicial, maxIteraciones, incremento)
+
+    funcionInicial = f(inicial)
+    funcionSiguiente
+
+    if funcionInicial == 0 
+        imprimir "funcionInicial es raíz"
+    end if
+
+    siguiente = inicial + incremento
+    funcionSiguiente = f(siguiente)
+
+    iterActual = 1
+
+    while funcionInicial * funcionSiguiente > 0 & iterActual > maxIteraciones
+        inicial = siguiente
+        funcionInicial = funcionSiguiente
+
+        siguiente = inicial + incremento
+        funcionSiguiente = f(siguiente)
+
+        iterActual++
+    end while
+    
+    if funcionSiguiente == 0
+        imprimir "siguiente es raíz"
+    else if funcionInicial * funcionSiguiente < 0
+        imprimir "Hay una raíz entre x0 y x1"
+    else
+        imprimir "No se encontró respuesta"
+    end if

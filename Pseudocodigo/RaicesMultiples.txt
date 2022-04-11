@@ -1,0 +1,27 @@
+read x0, tol, maxIter
+fx = f(x0)
+dfx = df(x0) //Primera derivada
+d2fx = d2f(x0) //Segunda derivada
+iterActual = 0
+error = tol + 1
+denominador = dfx^2 - fx*d2fx
+x1 = 0
+errorRelativo = 0
+
+while(error > tol  && fx != 0 && denominador != 0 && iterActual < maxIter)
+	x1 = x0 - ((fx*dfx)/denominador)
+	fx = f(x1)
+	dfx = df(x1)
+	d2fx = d2f(x1)
+	denominador = dfx^2 - fx*d2fx
+	error = |x1-x0| //Valor absoluto
+	errorRelativo = |error/x0| //Valor absoluto
+	x0 = x1
+	iterActual = iterActual + 1
+end while
+
+if(fx == 0) imprimir "%x0 es una raíz"
+else if(error < tol) imprimir "%x1 es una aproximación a una raíz con %tol tolerancia" 
+else if(denominador == 0) imprimir "denominador cero, error"
+else imprimir "no se llegó en %maxIter iteraciones"
+end if
