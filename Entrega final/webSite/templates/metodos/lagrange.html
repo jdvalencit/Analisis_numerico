@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Lagrange{% endblock  %}
+{% block content %}
+<h2>Lagrange</h2>
+
+    <form action="{% url 'Lagrange' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+    <br>
+    {{res}}
+{% endblock  %}

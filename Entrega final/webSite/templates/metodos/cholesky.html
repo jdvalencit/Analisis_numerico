@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Cholesky method{% endblock  %}
+
+{% block content %}
+<h2>Cholesky</h2> 
+    {% if form.error %}
+        <p>Error al cargar información</p>
+    {% endif %}
+
+    <form action="{% url 'Cholesky' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+    {% for i in res %}
+        X{{ forloop.counter0 }}&nbsp=&nbsp{{ i }}
+        <br>
+    {% endfor %}
+{% endblock  %}
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Incremental search</h2>
+
+    {% if form.error %}
+        <p>Error al cargar información</p>
+    {% endif %}
+
+    <form action="{% url 'Incremental' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+        <br>
+
+        {{res}}
+{% endblock  %}

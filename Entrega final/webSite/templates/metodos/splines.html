@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Splines{% endblock  %}
+{% block content %}
+<h2>Splines</h2>
+
+    <form action="{% url 'Splines' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+    <br>
+    <p><b>Linear splines solution</b></p>
+    {% for i in res.linear %}
+        {{ i }}
+        <br>
+    {% endfor %}
+    <br>
+    <p><b>Quadratic splines solution</b></p>
+    {% for i in res.quad %}
+        {{ i }}
+        <br>
+    {% endfor %}
+{% endblock  %}

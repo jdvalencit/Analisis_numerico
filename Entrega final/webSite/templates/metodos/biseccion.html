@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Bisection method{% endblock  %}
+{% block content %}
+<h2>Bisection</h2>
+{% if form.error %}
+    <p>Error en al cargar formulario</p>
+{% endif %}
+<form action="{% url 'Bisection' %}" method="POST">
+{% csrf_token %}
+    <table style="display:flex;justify-content: center;align-items: center;">
+        {{ form.as_table }}
+    </table>
+    <br>
+    <br>
+    <input type="submit" name="solve" id="solve" value="Solve">
+</form>
+{% if res or table %}
+<b>Result: </b>{{res}}
+<br>
+<br>
+<div style="display: flex; justify-content: center; align-items: center;">
+<div style="width:75%;">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ite</td>
+        <th scope="col">xi</td>
+        <th scope="col">xm</td>
+        <th scope="col">xf</td>
+        <th scope="col">f(x)</td>
+        <th scope="col">Absolute error</td>
+        <th scope="col">Relative error</td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+        {% for i in table %}    
+        
+        {% if i == "newline" %}
+            </tr>
+            <tr>
+        {% else %}
+            <td>    
+                {{i}}
+            </td>
+        {% endif %}
+        {% endfor %}
+        </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<br><br>
+{% endif %}
+{% endblock  %}

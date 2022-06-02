@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}LU factorization with Gaussian elimination{% endblock  %}
+
+{% block content %}
+<h2>LU Gauss</h2> 
+    {% if form.error %}
+        <p>Error al cargar información</p>
+    {% endif %}
+
+    <form action="{% url 'LuGauss' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+    {% for i in res %}
+        X{{ forloop.counter0 }}&nbsp=&nbsp{{ i }}
+        <br>
+    {% endfor %}
+{% endblock  %}
+
+
+

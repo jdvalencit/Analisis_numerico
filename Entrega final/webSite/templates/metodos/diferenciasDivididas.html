@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Newton by divided differences{% endblock  %}
+{% block content %}
+<h2>Newton by divided differences</h2>
+
+    <form action="{% url 'Diferencias' %}" method="POST">
+        {% csrf_token %}
+        <table style="display:flex;justify-content: center;align-items: center;">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" name="solve" id="solve" value="Resolver">
+    </form>
+    {% if pol and spol %}
+    Tabla:
+    <br>
+    {% for i in tabla %}
+        {{ i }}
+        <br>
+    {% endfor %}
+    <br>
+    Polinomio:
+    <br>
+    {{pol}}
+    <br>
+    Polinomio simplificado:
+    <br>
+    {{spol}}
+{% endif %}
+{% endblock  %}
