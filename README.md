@@ -1,4 +1,8 @@
 # <center>SmartMath User's Manual!
+	
+**Created by:**
+- Juan David Valencia Torres
+- David José Cardona Nieves
 
 Hello! Welcome to the **SmartMath** User Manual. This manual was created with the objective of facilitating the process of using the SmartMath web platform by explaining the implemented methods and their restrictions. You will also find different sections that may be of interest for your knowledge of the project.
 
