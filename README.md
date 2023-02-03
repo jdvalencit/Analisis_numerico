@@ -400,3 +400,5 @@ $$
 |Vectors          |`[10,15]`                      |`10,15`                      |
 |Tolerance        |`0.000001`                     |`10^-6`                      |
 |Iterations Amount|`100`                          |`-100`                       |
+
+This project was made for the Numerical Analysis course.
